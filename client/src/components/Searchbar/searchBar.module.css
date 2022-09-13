@@ -1,0 +1,15 @@
+
+.button{
+    border-radius: 5px;
+    background-color: rgb(199, 192, 192);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.button:hover{
+    background-color:rgb(125, 184, 240);
+    cursor: pointer;
+}
+
+.placehold{
+    border-color: black;
+}

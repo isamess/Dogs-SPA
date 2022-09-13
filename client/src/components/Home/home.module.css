@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+.body{
+    background-image:  url(../../assets/huellas-agua.jpg);
+    background-color: rgb(23, 160, 160);
+    background-size: cover;
+    height: 100%;
+    margin-top: 0px;
+
+}
+
+.head{
+    background-position: center;
+    font-family:'Major Mono Display', monospace ;
+    color:rgb(240, 20, 20);
+    text-shadow: 3px 3px 3px rgba(214, 235, 98, 0.603);
+    font-size:20px;
+    text-align:left;
+    font-weight: normal; 
+    margin-left: 5%;
+}
+
+
+.Card {
+    width: 40%;
+    float: left;
+    padding: 4em;
+    border-radius: 10%  10% 3% 3%;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+
+}
+.backCards{
+    background-image:  url(../../assets/huellas-agua.jpg);
+}
+
+.cita{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 8px;
+    color: rgb(204, 253, 27);
+    margin-right: 5%;
+    float:right;
+    text-shadow: 4px 4px 4px rgba(230, 9, 9, 0.925);
+    
+
+}
+.created{
+    text-decoration: none;
+    position:relative;
+    /* margin-left: 5%; */
+    padding: 5px;
+}
+
+.button{
+    border-radius: 5px;
+    background-color: rgb(199, 192, 192);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+.button:hover{
+    background-color:rgb(125, 184, 240);
+    cursor: pointer;
+}
+
+.filter{
+    border:1px;
+    border-color: black;
+}
+
+
+
+.pagination li{
+    color: rgb(20, 4, 114);
+    display:inline-flex;
+    padding: 10px;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+    background-color: #42263e83;
+    border-radius: 10%;
+    list-style:none;
+    width: 10px;
+    height: 10px;
+    font-size: 12px;
+    align-items: center;
+}
+.pagination:hover{
+    transition: 0.8s;
+    background-color: #fdf6fc73;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377), 0 0 10px rgba(255, 255, 255, 0.377);
+    border: none;
+    color: rgb(66, 2, 45);
+}  

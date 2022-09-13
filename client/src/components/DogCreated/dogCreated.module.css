@@ -1,0 +1,179 @@
+
+
+.contPpal {
+    background-image: url('../../assets/abrazados.jpg');
+    height: 90vh;
+    background-size: cover;
+    padding-top: 7vh;
+    display: flex;
+    /* flex-direction: column; */
+    background-color: rgba(255, 237, 133, 0.747);
+    width: 100vw;
+
+    padding-bottom: 1px;
+}
+
+
+
+.form {
+    width: 100%;
+    margin: 10px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.inputs{
+    margin-left: 90px;
+}
+
+.caja {
+    margin-left:5%;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 40vw;
+    max-width: 750px;
+    height: fit-content;
+    background-color: rgba(152, 235, 180, 0.3);
+    display: flex;
+    flex-direction: column;
+    border-radius: 15px;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+
+.alturas {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    padding-bottom: 5px;
+}
+
+.pesos {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    padding-bottom: 5px;
+}
+.life_span {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    padding-bottom: 5px;
+}
+
+.nombre {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    padding-bottom: 5px;
+    
+}
+
+.image {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    padding-bottom: 5px;
+}
+
+
+ .buttonBack {
+    font-family:Georgia;
+    font-size:x-large;
+    border: none;
+    cursor: pointer;
+    width:fit-content;
+    height: 30px;
+    color: #fff;
+    background-color: #733ca9;
+    border-radius: 10px;
+    align-items: center;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    margin-bottom: 1px;
+}
+
+.buttonBreed {
+    font-family:Georgia;
+    font-size:x-large;
+    border: none;
+    cursor: pointer;
+    width:fit-content;
+    height: 30px;
+    color: #fff;
+    background-color: #733ca9;
+    border-radius: 10px;
+    align-items: center;
+    padding: 5px;
+    display: flex;
+    justify-content: space-around;
+    font-weight: 500;
+    margin-bottom: 1px;
+    margin-left: 30px;
+}
+
+.divVolver {
+    position: fixed;
+    margin-left: 5px;
+    margin-top: 550px;
+    background-color: transparent;
+    width: 50px;
+    height: fit-content;
+    padding-left: 5%;
+    }
+    
+.botonVolver {
+    /* background-color: #0B325E; */
+   position:absolute;
+    width: 100%;
+    height:max-content;
+    align-items:center;
+    justify-content:space-around;
+    margin-left: 4rem;
+    margin-bottom: 40px;
+
+}
+
+.botonX {
+    border-radius: 4px; 
+    height: 18px;
+    width: 18px;
+    border-color: black;
+    justify-content: center;
+    display: flex;
+    color: rgb(12, 12, 12);
+    font-size:small;
+    padding:1px;
+
+}
+
+.divTemp {
+    font-size:small; 
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.lista{
+    text-decoration: none;
+}
+.temper{
+    display: flex;
+    flex-direction: row;
+    width: 80%;
+
+}
+.temperX{
+    height: auto;
+    margin-top: 10px;
+    margin-left: 180px;
+    padding-bottom:10px;
+    padding-left:10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(152, 235, 180, 0.3);
+    height: fit-content;
+    width: 20vw;
+    border-radius: 15px;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+    box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
