@@ -30,8 +30,8 @@
 .caja {
     margin-left:5%;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    width: 40vw;
-    max-width: 750px;
+    width: 60vw;
+    max-width: 800px;
     height: fit-content;
     background-color: rgba(152, 235, 180, 0.3);
     display: flex;
@@ -44,28 +44,33 @@
 .alturas {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 70%;
     padding-bottom: 5px;
+    font-size: 14px;
+    
 }
 
 .pesos {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 70%;
     padding-bottom: 5px;
+    font-size: 14px;
 }
 .life_span {
     display: flex;
     flex-direction: row;
-    width: auto;
+    width: 70%;
     padding-bottom: 5px;
+    font-size: 14px;
 }
 
 .nombre {
     display: flex;
     flex-direction: row;
-    width: 50%;
+    width: 70%;
     padding-bottom: 5px;
+    font-size: 14px;
     
 }
 
@@ -74,12 +79,13 @@
     flex-direction: row;
     width: 50%;
     padding-bottom: 5px;
+    font-size: 14px;
 }
 
 
  .buttonBack {
     font-family:Georgia;
-    font-size:x-large;
+    font-size:30px;
     border: none;
     cursor: pointer;
     width:fit-content;
@@ -177,3 +183,185 @@
     -webkit-box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
     box-shadow: inset -1px 3px 8px 5px #1f88ff00, 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
+
+.errors{
+    font-weight: 100;
+}
+.buttonDelete{
+    background-color: wheat;
+    border-style: ridge;
+    border-radius: 10px;
+}
+
+.button-delete:hover {
+    background-color: rgb(180, 35, 35);
+    transition: 1s;
+}
+
+/* ///////////////////////////////// */
+
+.formInputs {
+    border: none;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.5);
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+    font-size: large;
+    margin-bottom: 1rem;
+    width: 25rem;
+    height: 2rem;
+  }
+  
+  .tempContainer {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85%;
+    width: 40%;
+  }
+  
+  .tempsInput {
+    border: 2px solid rgba(128, 128, 128, 0.5);
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 0.2rem;
+    outline: none;
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    resize: none;
+    width: 95%;
+    height: 6rem;
+  }
+  
+  .tempBtnContainer {
+    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .tempBtn {
+    background-color: rgba(255, 255, 255, 0.75);
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 0.2rem;
+    cursor: pointer;
+    margin: 0.25rem;
+    width: 8rem;
+    height: 2rem;
+  }
+  
+  .tempBtn:hover {
+    background-color: rgba(255, 255, 255);
+    font-weight: 500;
+    transform: scale(101%);
+    transition: 0.125s;
+  }
+  
+  .pageBtnContainer {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 2.5rem;
+  }
+  
+  .tempPageBtn {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+  
+  .tempDisabledPageBtn {
+    background-color: rgba(255, 255, 255, 0.75);
+    border: none;
+    border-radius: 999px;
+    margin-left: 0.15rem;
+    margin-right: 0.15rem;
+    height: 1.75rem;
+    width: 1.75rem;
+  }
+  
+  .tempPageBtn:hover {
+    background-color: rgba(255, 255, 255);
+    transform: translate(0.5%);
+  }
+  
+  .btnContainer {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    bottom: 0;
+    height: 15%;
+    width: 100%;
+    font-size:larger;
+    font-style:oblique;
+  }
+  
+  .btn {
+    background-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.2);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.7);
+    width: 15rem;
+    height: 2.5rem;
+  }
+  
+  .btnDisabled {
+    background-color: rgba(128, 128, 128, 0.335);
+    /* box-shadow: 1px 1px 5px 3px rgba(0, 0, 0, 0.2); */
+    border: none;
+    border-radius: 0.5rem;
+    width: 15rem;
+    height: 2.5rem;
+  }
+  
+  .btn:hover {
+    background-color: rgba(255, 255, 255);
+    color: black;
+    transform: scale(101%);
+    transition: 0.125s;
+    height: 2.75rem;
+  }
+  
+  .textHasErrors {
+    color: red;
+    font-weight: 500;
+  }
+  
+  .inputHasErrors {
+    border: none;
+    border-bottom: 1px solid red;
+    background-color: transparent;
+    outline: none;
+    text-align: center;
+    font-size: large;
+    margin-bottom: 1rem;
+    width: 25rem;
+    height: 2rem;
+  }
+  
+  .tempsInputHasErrors {
+    border: 2px solid red;
+    background-color: rgba(255, 255, 255, 0.4);
+    outline: none;
+    text-align: center;
+    font-size: large;
+    font-weight: 500;
+    resize: none;
+    width: 95%;
+    height: 6rem;
+  }
+  

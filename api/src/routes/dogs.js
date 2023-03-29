@@ -49,12 +49,10 @@ router.get("/:id", async (req, res, next) => {
         name: dogDetails.name,
         id: dogDetails.id,
         height: dogDetails.height.metric,
-        // height_min: d.height.metric.split(" - ")[0],
         weight: dogDetails.weight.metric.split(" - ")[0],
-        // weight_min: d.weight.metric.split(" - ")[0],
         life_span: dogDetails.life_span,
         temperament: dogDetails.temperament,
-        img: dogDetails.image.url,
+        image: dogDetails.image.url,
     });
     }
 } catch (error) {

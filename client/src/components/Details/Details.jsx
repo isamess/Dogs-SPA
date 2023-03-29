@@ -6,16 +6,20 @@ import style from './details.module.css';
 
 
 
-export default function Details(props){
-    console.log("LAS PROPS SON:", props)
+export default function Details(){
+    // console.log("LAS PROPS SON:", props)
     const dispatch = useDispatch();
-    const {id}= useParams();  
+    const {id}= useParams();
+   
+
+// console.log(id)
 
     useEffect(() => {
     dispatch(dogDetail(id));
-    },[dispatch, id]); 
+    },[dispatch]); 
+    
+    const cardDetail = useSelector((state) => state.details);
 
-    const cardDetail = useSelector((state) => state.details); 
 
     if(!cardDetail.temperament){
     cardDetail.temperament = "None"
@@ -27,12 +31,12 @@ export default function Details(props){
     <h3 className={style.name}>{cardDetail.name}</h3>
     <img className={style.image} src={cardDetail.image} alt="not found"/>
     <div className={style.allD}>
-    <h5>Temperaments:</h5>
-    <ul>{cardDetail.temperament}</ul>
+    <h5>Temperaments</h5>
+    <ul key={cardDetail.id}>{cardDetail.temperament}</ul>
     <div className={style.detail}>
-    <h5>Weight: </h5>
-    <h5>Height: </h5>
-    <h5>Life Span: </h5>
+    <h5>Weight </h5>
+    <h5>Height </h5>
+    <h5>Life Span </h5>
     <p>{cardDetail.weight} kg</p>
     <p>{cardDetail.height} cm</p>
     <p>{cardDetail.life_span}</p>
@@ -40,11 +44,11 @@ export default function Details(props){
     </div>
     <br />
     
-    <div className={style.backHome}>
+    <div >
         <Link to ='/home'>
-        <button> Go Home!</button>
+        <button className={style.buttonBack}> Go Home!</button>
         </Link>
-    </div>
+    </div> 
 
     </div> 
     </React.Fragment>

@@ -5,7 +5,7 @@ export function getDogs(){   //conexión con el back
         const json= await axios.get('http://localhost:3001/dogs');
         return dispatch({
             type: 'GET_DOGS',
-            payload: json.data
+            payload: json.data   //datos que se utilizarán en el reducer para actualizar el estado
         })
     }
 }
@@ -26,8 +26,9 @@ export function getDogsName(name){  //me traigo los names del back para la Searc
 
 export function getTemperaments(){
     return async function(dispatch){
-        try {
-            let json= await axios.get('http://localhost:3001/temperament/');
+    try {
+            let json= await axios.get('http://localhost:3001/temperaments/');
+            console.log(json)
             return dispatch({
                 type: 'GET_TEMPERAMENTS',
                 payload: json.data
@@ -52,7 +53,7 @@ return async function (dispatch){
 export function dogDetail(id) { 
     return async function(dispatch) {
         try {
-            let json = await axios.get('http://localhost:3001/dogs/'+ id);
+            let json = await axios.get(` http://localhost:3001/dogs/${id}`)
             console.log(json.data)
             return dispatch({
                 type: 'DOG_DETAIL', 
@@ -62,7 +63,22 @@ export function dogDetail(id) {
             console.log(error);
         }
     }
+    // const result = await dogDetail(id);
+    // console.log(result)
 };
+
+// export function dogDetail(id){
+//     return function(dispatch){
+//         return fetch(` http://localhost:3001/dogs/${id}`)
+//             .then(response => response.json())
+//             .then(result => {
+//                 dispatch({
+//                     type: 'DOG_DETAIL',
+//                     payload: result[0]
+//                 })
+//             })
+//     }
+// }
 export function cleanDetail(){
     return{
         type:'CLEAN_DETAIL'

@@ -17,34 +17,23 @@ router.post('/', async(req, res)=>{
     console.log(req.body)
     if(!name || !height || !weight)res.status(400).json({msg:"Missing data"})
     try{
-        const obj= {name, height, weight, life_span, image, createdInDb}
+        const obj= {name, height, weight, life_span, image, createdInDb} //no se pasa temperamento porque tengo que hacer la relacion aparte
         const dogCreated= await Dog.create(obj);
         
-        let temps = await Temperament.findAll({
+        let tempsDB = await Temperament.findAll({ //busco temperamento en la DB según el modelo que me llega por body
             where: {
-              name: temperament,
+              name: temperament,  //trae temperaments q conciden con el modelo que estoy pasando por body
             },
           });
-        dogCreated.addTemperament(temps)
+        dogCreated.addTemperament(tempsDB)  // método de sql
         console.log(dogCreated)
-        res.status(200).send(dogCreated)
+        res.status(200).send("Dog created succesfully")
         }catch(error){
         console.log(error)
     }
 });
 
-// router.post('/', async(req, res)=>{
-//     const{name, height, weight, life_span, image, temperament, createdInDb}=req.body
-//     if(!name || !height || !weight)res.status(400).json({msg:"Missing data"})
-//     try {
-//         const obj={name, height, weight, life_span, image, temperament, createInDb}
-//         const newDog= await Dog.create(obj)
-//         newDog.addTemperament(temperament)
-//         res.send(newDog)
-//     } catch (error) {
-//         console.log(error)
-//     }
-// });
+
 
 
 module.exports = router;

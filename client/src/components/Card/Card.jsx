@@ -25,7 +25,7 @@ export default function Card({name, temperament, image, weight}){
         </h3>
         <span>Temperament:</span>
         
-            <h2 className={style.titleTemps}>
+            <h2 className={style.temps}>
             {temperament}
             </h2>
             </div>

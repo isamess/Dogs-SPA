@@ -9,13 +9,16 @@ const getApiInfo= async()=>{
          return {
             id:dogui.id,
             name:dogui.name,
-            height:dogui.height.metric,
-            weight:dogui.weight.metric,
+            minHeight: Number(dogui.height.metric.split("-")[0] || 0),
+            maxHeight: Number(dogui.height.metric.split("-")[1] || 0),
+            minWeight: Number(dogui.weight.metric.split("-")[0] || 0),
+            maxWeight: Number(dogui.weight.metric.split("-")[1] || 0),
             life_span:dogui.life_span,
-            temperament:dogui.temperament,
+            temperament:dogui.temperament?.includes(",")
+            ?dogui.temperament?.split(",").map((temp) => temp.trim())
+            :dogui.temperament?.split(),
             image:dogui.image.url,
         };
-        
     });
     // console.log("LO QUE ME DEVUELVE LA API: ", appiInfo);
     return appiInfo;

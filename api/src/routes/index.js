@@ -14,7 +14,7 @@ const router = Router();
 // Ejemplo: router.use('/auth', authRouter);
 
 router.use("/dogs", dogsRouter);
-router.use("/temperament", temperamentRouter)
+router.use("/temperaments", temperamentRouter)
 router.use("/dog", dogRouter);
 
 

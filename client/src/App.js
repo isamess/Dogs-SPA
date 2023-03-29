@@ -14,9 +14,9 @@ function App() {
     <div className="App">
     <Switch>
       <Route exact path= "/" component= {LandingPage}></Route>
-      <Route exact path= "/home" component= {Home}></Route>
+      <Route path= "/home" component= {Home}></Route>
       <Route path= "/dog" component= {DogCreated}></Route>
-      <Route exact path= "/:id" component= {Details }></Route>
+      <Route exact path= "/dogs/:id" component= {Details }></Route>
     </Switch>
     </div>
     </BrowserRouter> 

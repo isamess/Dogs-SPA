@@ -10,28 +10,28 @@ import style from './home.module.css';
 
 
 export default function Home(){ 
-    const dispatch= useDispatch();  //despacho acciones con esta constante
-    const allDogs= useSelector((state)=> state.dogs);// me traigo el estado de dogs
-    const temperament= useSelector((state)=> state.temperament);
+    const dispatch= useDispatch();  //despacho mis acciones con esta constante
+    const allDogs= useSelector((state)=> state.dogs);// me traigo el estado de dogs (=mapstatetoprops)
+    const allTemps= useSelector((state)=> state.temperaments);
 
 
 //paginado
 const [currentPage, setCurrentPage] = useState(1); //guardo estado local actual(1)
 // eslint-disable-next-line 
 const [dogsPerPage, setDogsPerPage] = useState(8); //cantidad de dogs por página
-// eslint-disable-next-line 
-const [order, setOrder]= useState(""); //estado local arranca vacío, luego se ordena. Hook de ordenamiento
-
-//To get current dogs
 const indexLastDog = currentPage * dogsPerPage ;
 const indexFirstDog = indexLastDog - dogsPerPage;
-
 const currentDogs = allDogs.slice(indexFirstDog, indexLastDog); //dogs en la página actual
-
-//To change page
 const paginado = (numberOfPage) => {
     setCurrentPage(numberOfPage);
 };
+
+// eslint-disable-next-line 
+const [order, setOrder]= useState(""); //estado local arranca vacío, luego se ordena. Hook de ordenamiento. Me setea un estado local para que me haga el renderizado alfabético
+// eslint-disable-next-line
+const [order2, setOrder2]= useState("");  // estado para renderizar ordenamiento por peso
+//To change page
+
 
 //TODO: traigo los perros cuando el componente se monta
 useEffect(()=>{
@@ -40,19 +40,19 @@ useEffect(()=>{
 
 useEffect(()=>{
     dispatch(getTemperaments())
-},[dispatch]);
+},[]);
 
 
 //TODO: Handles to dispatch actions
 
-
+//TODO: handle to reload dogs
 function handleClick(e){
     e.preventDefault();
     dispatch(getDogs());
     };
     
     //TODO: handle to filter dogs created
-    function handleFilter(e) {
+    function handleFilterByCreated(e) {
     e.preventDefault();
     dispatch(filterDogCreated(e.target.value));
     }
@@ -65,11 +65,15 @@ function handleClick(e){
     //console.log(temperaments);
     
     //TODO: handle alphabetic order
-    function handleOrder(e) {
+    function handleOrderByName(e) {
     e.preventDefault();
     dispatch(alphaOrder(e.target.value));
-    setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`);
+    setCurrentPage(1); // pido que me setee en la primera página 
+    setOrder(`${e.target.value}`); //se modifica estado local
+    e.target.value= 'default';
+    setOrder2(`${e.target.value}`);
+
+    
     }
 
     //TODO: handle weight order
@@ -77,7 +81,9 @@ function handleClick(e){
     e.preventDefault();
     dispatch(weightOrder(e.target.value));
     setCurrentPage(1);
-    setOrder(`Ordenado ${e.target.value}`); //cambia estado local a ordenado
+    setOrder2(`${e.target.value}`);
+    e.target.value= 'default';
+    setOrder(`${e.target.value}`)
     }
 
     return(
@@ -85,7 +91,7 @@ function handleClick(e){
             <div className={style.body}>
             
                 <div className={style.head}>
-                    <h1>Find your new best friend!</h1>
+                    <h1>Find your body to love!</h1>
                 </div>
 
             <div className= {style.cita}>
@@ -96,44 +102,46 @@ the dog loves him (or her)" Iggy Pop</h1>
             </div>
 
     <div className={style.created}>
-    <button className={style.button}>
-    <Link to='/dog'>Create New Dog</Link>
-        </button>
+        <Link to='/dog'>
+    <button className={style.button}>Create New Breed</button></Link>
     </div>
 
-    <div>
-    <button className={style.button} onClick={(e) => handleClick(e)}>Recharge Page</button>
+    <div className={style.created}>
+    <button className={style.button} onClick={(e) => handleClick(e)}>Reload Dogs</button>
     </div>
-
-    
         
     <SearchBar></SearchBar>
 
     <div >
-    <select onChange={e=>handleOrder(e)}>
-            <option value="Asc">A to Z</option>
-            <option value="desc">Z to A</option>
+    <select  className={style.select} onClick={(e)=>handleOrderByName(e)}defaultValue="default">
+            <option value="default" disabled="disabled">Names</option>
+            <option value="Asc" key="Asc">A to Z</option>
+            <option value="Desc" key="Desc">Z to A</option>
         </select>
 
-        <select onChange={e=>handleOrderByWeight(e)}>
-            <option value="Weight 1">Smaller</option>
-            <option value="Weight 2">Bigger</option>
+        <select className={style.select} onClick={e=>handleOrderByWeight(e)} defaultValue="default">
+            <option value="default" disabled="disabled">Weight</option>
+            <option value="Weight1" key="Weight1">Smaller</option>
+            <option value="Weight2" key="Weight2">Bigger</option>
         </select>
-        <select onChange={handlefilterByTemperaments}>
-        <option value="All">Temperament</option>
-        {temperament && temperament.map((e)=>{
-            return(
-            <option value={e.name} key={e.id}>{e.name}</option>
-            )
-            })}
+
+        <select className={style.select} onClick={(e)=>handlefilterByTemperaments(e)} defaultValue="default">
+         <option value='default' disabled='disabled' >Temperaments</option>
+        <option value=""  key="AllT">Temperaments</option> 
+        {allTemps && allTemps.map((temp) => (
+          <option key={temp.id} value={temp.name}>{temp.name}</option>
+        ))}
         </select>
-        <select onChange={(e)=>handleFilter(e)}>
-            <option value="All">All</option>
-            <option value='Created'>Created</option>
+
+        <select className={style.select} onClick={(e)=>handleFilterByCreated(e)} defaultValue="default">
+            <option value='default' disabled='disabled'>Source</option> 
+            <option value="All" key="All">All</option>
+            <option value='Created' key="Created">Created</option>
             </select>
 
             <div className={style.Pagination}></div>
-                {allDogs.length > 8 ? (
+                {allDogs.length > 8 ? 
+                (
                     <Paginado
                         dogsPerPage={dogsPerPage}
                         allDogs={allDogs.length}
@@ -143,27 +151,29 @@ the dog loves him (or her)" Iggy Pop</h1>
                 ): null}
             
             </div> 
-            <div className={style.backCards}>
-                
+
+            <div className={style.divCards}>
         {currentDogs && currentDogs.map((c)=>{  
-            // console.log(c.id)
             return(
-                <div className={style.Card}>
-                <NavLink to={"/home" + c.id} key={c.name}>
-                    <Card name={c.name} 
+                <div   key={c.id}className={style.Card}>
+                <NavLink to={`/dogs/${c.id}`} >
+                    <Card 
+                    name={c.name} 
                     image={(c.image) || null}  
-                    temperament={c.temperament}
-                    weight={c.weight} 
-                    key={c.id}
+                    weight={c.weight}
+                   
+                    temperament={
+                        c.temperament
+                        ? c.temperament
+                        : c.temperaments && c.temperaments.map((temp)=>temp.name.concat(" "))
+                    }
                     />
                 </NavLink>
                 </div>
             )
         })
         }
-
             </div>
-    
     </div>
         </React.Fragment>
 

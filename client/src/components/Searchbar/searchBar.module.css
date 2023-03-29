@@ -3,6 +3,8 @@
     border-radius: 5px;
     background-color: rgb(199, 192, 192);
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    padding: 5px;
+    border-color:rgb(235, 8, 8); ;
 }
 
 .button:hover{
@@ -11,5 +13,6 @@
 }
 
 .placehold{
-    border-color: black;
+    border-color: rgb(235, 8, 8);
+    padding:5px;
 }

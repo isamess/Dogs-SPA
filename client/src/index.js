@@ -9,6 +9,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 //envuelvo todo en un Provider para que Redux me funcione correctamente
+// debe arropar todos los componentes para pasarle el store
 ReactDOM.render(
   <Provider store={store}>  
   <React.StrictMode>
